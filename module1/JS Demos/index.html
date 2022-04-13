@@ -1,0 +1,61 @@
+<html>
+  <head> </head>
+  <body>
+    <h1>Hello MIT xPro!</h1>
+    <ul id="students">
+
+    </ul>
+  </body>
+</html>
+<script>
+  const myObj = {
+    firstName: "Tim",
+    lastName: "Kellogg",
+    age: 28,
+  };
+
+  const people = [
+    {
+      firstName: "Tim",
+      lastName: "Kellogg",
+      age: 28
+    },
+    {
+      firstName: "Melissa",
+      lastName: "Pancurak",
+      age: 45,
+    },
+    {
+      firstName: "David",
+      lastName: "Turner",
+      age: 19,
+    },
+    {
+      firstName: "Win",
+      lastName: "F",
+      age: 25,
+    },
+    {
+      firstName: "Ed",
+      lastName: "Waggoner",
+      age: 100,
+    },
+    {
+      firstName: "Vikram",
+      lastName: "Singh",
+      age: 34,
+    },
+  ];
+
+  const studentList = document.querySelector('#students')
+  console.log(studentList)
+
+  for(let i = 0; i < people.length; i++) {
+    console.log(people[i])
+
+    const newElement = document.createElement('li');
+    newElement.textContent = people[i].firstName + ' ' + people[i].lastName;
+    studentList.append(newElement)
+  }
+
+</script>
