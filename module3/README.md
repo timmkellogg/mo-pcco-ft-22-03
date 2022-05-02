@@ -1,4 +1,4 @@
-## Module 2
+## Module 3
 
 javascript basics
   - anonymous functions/defined functions
