@@ -10,9 +10,7 @@ class ToDoClass extends React.Component {
     addToDo = () => {
         if (!this.state.toDoInput.trim()) return;
 
-        const newList = [...this.state.toDoList];
-
-        newList.push(this.state.toDoInput);
+        const newList = [...this.state.toDoList, this.state.toDoInput];
 
         this.setState({ toDoList: newList, toDoInput: '' });
     }
