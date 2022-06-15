@@ -1,5 +1,7 @@
 import GiphySearch from './components/GiphySearch'
 
+import './styles.css'
+
 function App() {
 
   return (
