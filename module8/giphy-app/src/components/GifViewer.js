@@ -13,4 +13,4 @@ function GifViewer({ gifs }) {
     )
 }
 
-export default GifViewer;
+export default GifViewer

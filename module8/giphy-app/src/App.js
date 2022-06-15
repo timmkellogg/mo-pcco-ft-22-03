@@ -1,13 +1,13 @@
-import GiphySearch from './components/GiphySearch';
+import GiphySearch from './components/GiphySearch'
 
 function App() {
 
   return (
     <div>
-      <h2>Giphy App</h2>
+      <h1>Giphy App</h1>
       <GiphySearch />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

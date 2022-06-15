@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 import GifViewer from './GifViewer'
 
 function GiphySearch() {
-  const [input, setInput] = useState('');
-  const [gifs, setGifs] = useState([]);
+  const [input, setInput] = useState('')
+  const [gifs, setGifs] = useState([])
 
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function GiphySearch() {
   }, [])
 
   const search = async (event) => {
-    if(event) event.preventDefault();
+    if(event) event.preventDefault()
 
     let response;
 
@@ -35,7 +35,7 @@ function GiphySearch() {
 
       <GifViewer gifs={gifs} makeSomethingUp='some string I guess' />
     </div>
-  );
+  )
 }
 
-export default GiphySearch;
+export default GiphySearch
