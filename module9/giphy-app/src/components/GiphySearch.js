@@ -18,9 +18,9 @@ function GiphySearch() {
     let response
 
     if(input.trim()) {
-      response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${input}&api_key=HmEX7II3wXDKvQ7d1d10aO23CimFAj1J&limit=10`)
+      response = await fetch(`https://api.giphy.com/v1/gifs/search?&api_key=APIKEYGOESHERE&limit=10&q=${input}`)
     } else {
-      response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=HmEX7II3wXDKvQ7d1d10aO23CimFAj1J&limit=10')
+      response = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=APIKEYGOESHERE&limit=10')
     }
 
     const json = await response.json()
