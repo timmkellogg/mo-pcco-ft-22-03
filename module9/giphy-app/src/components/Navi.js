@@ -1,9 +1,13 @@
 import { Navbar, NavbarBrand, Collapse, NavLink, NavItem, Nav } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import { useAuth } from '../contexts/authContext'
 
 function Navi() {
-    return (
-        <Navbar color="light" light expand="md">
+  const auth = useAuth();
+  console.log(auth);
+
+  return (
+    <Navbar color="light" light expand="xs">
       <NavbarBrand tag={Link} to="/">Giphy App</NavbarBrand>
       <Collapse navbar>
         <Nav className="mr-auto" navbar>
@@ -14,16 +18,16 @@ function Navi() {
             <NavLink tag={Link} to="/saved">Saved</NavLink>
           </NavItem>
           <NavItem>
-            {/* {auth.user
-              ? <NavLink onClick={() => console.log('logout')}>Logout</NavLink>
+            {auth.user
+              ? <NavLink onClick={auth.signout}>Logout</NavLink>
               : <NavLink tag={Link} to="/login">Login</NavLink>
-            } */}
-                <NavLink tag={Link} to="/login">Login</NavLink>
+            }
+            
           </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
-    )
+  )
 }
 
 export default Navi
