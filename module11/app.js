@@ -1,47 +1,22 @@
-const express = require('express')
+import express from 'express' 
+import path from 'path'
+import gifRouter from './routes/gifs.js'
 
 const app = express()
 const port = 3000 
 
 //using middleware
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
-const db = {
-    gifs: [{
-        url: 'someurl',
-    },
-    {
-        url: 'someurlidk',
-    }],
-    users: [
-        {
-            username: 'tim',
-            password: 'redacted'
-        }
-    ]
-}
-
-//defining an endpoint
-app.get('/api/gifs', (req, res) => {
-
-    res.json(db.gifs)
-})
-
-app.post('/api/gifs', (req, res) => {
-    console.log(req.body)
-    //db.gifs.push('')
-
-    res.send('post successful')
-})
-
+app.use('/api/gifs', gifRouter)
 
 //default route
 app.get('*', (req, res) => {
     //sends react app
-    res.send('<html><body><h1>React app will go here</></body></html>')
+    res.sendFile(path.resolve() + '/index.html')
 })
 
-// STARTS EXPRESS ERVER
+// STARTS EXPRESS SERVER
 // USE CTRL + C TO STOP SERVER
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
