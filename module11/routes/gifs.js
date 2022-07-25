@@ -16,7 +16,7 @@ db.data = db.data || { gifs: [] }
 const router = express.Router()
 
 //READ
-router.get('/fasjfodafgsapfhafhashif', (req, res) => {
+router.get('/', (req, res) => {
     res.json(db.data.gifs)
 })
 
