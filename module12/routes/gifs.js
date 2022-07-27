@@ -2,6 +2,7 @@ import express from 'express'
 import { join, dirname } from 'path'
 import { Low, JSONFile } from 'lowdb'
 import { fileURLToPath } from 'url'
+import { v4 as uuidv4 } from 'uuid'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
 //CREATE
 router.post('/', (req, res) => {
     console.log(req.body)
-    db.data.gifs.push({ url: req.body.url })
+    db.data.gifs.push({ id: uuidv4(), url: req.body.url })
 
     db.write()
 
@@ -31,19 +32,24 @@ router.post('/', (req, res) => {
 })
 
 //UPDATE
-router.put('/', (req, res) => {
-    console.log(req.body)
-    //db.gifs.push('')
+router.put('/:id', (req, res) => {
+    const itemToUpdate = db.data.gifs.find((gif) => gif.id === req.params.id)
 
-    res.send('post successful')
+    itemToUpdate.url = req.body.url
+
+    db.write()
+
+    res.send('update successful')
 })
 
 //DELETE
-router.delete('/', (req, res) => {
-    console.log(req.body)
-    //db.gifs.push('')
+router.delete('/:id', (req, res) => {
+    
+    db.data.gifs = db.data.gifs.filter(gif => gif.id !== req.params.id)
 
-    res.send('post successful')
+    db.write()
+
+    res.send('delete successful')
 })
 
 export default router

@@ -1,13 +1,3 @@
 {
-  "gifs": [
-    {
-      "url": "www.gifs.com/somegif"
-    },
-    {
-      "url": "www.gifs.com/somegif"
-    },
-    {
-      "url": "www.gifs.com/somegif"
-    }
-  ]
+  "gifs": []
 }
